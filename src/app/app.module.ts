@@ -13,7 +13,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MiHttpService } from './servicios/mi-http/mi-http.service'; 
-import { PaisesService } from './servicios/paises.service'; 
+import { PaisesService } from './servicios/paises.service';
 
 import { JugadoresService } from './servicios/jugadores.service'; 
 import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
@@ -84,7 +84,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
     BrowserModule,
     FormsModule,
     RuteandoModule,
-    HttpModule,
+    HttpModule
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })
