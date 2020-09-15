@@ -84,7 +84,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
     BrowserModule,
     FormsModule,
     RuteandoModule,
-    HttpModule
+    HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })
