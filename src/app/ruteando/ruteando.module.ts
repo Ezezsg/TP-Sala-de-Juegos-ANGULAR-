@@ -21,7 +21,16 @@ import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component'
 import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/listado-de-paises.component'
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
-
+import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
+import { AnagramaMasListadoComponent } from '../componentes/anagrama-mas-listado/anagrama-mas-listado.component';
+import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { PiedraPapelTijeraMasListadoComponent } from '../componentes/piedra-papel-tijera-mas-listado/piedra-papel-tijera-mas-listado.component';
+import { TaTeTiComponent } from '../componentes/ta-te-ti/ta-te-ti.component';
+import { TaTeTiMasListadoComponent } from '../componentes/ta-te-ti-mas-listado/ta-te-ti-mas-listado.component';
+import { MemotestComponent } from '../componentes/memotest/memotest.component';
+import { MemotestMasListadoComponent } from '../componentes/memotest-mas-listado/memotest-mas-listado.component';
+import { SerpienteComponent } from '../componentes/serpiente/serpiente.component';
+import { SerpienteMasListadoComponent } from '../componentes/serpiente-mas-listado/serpiente-mas-listado.component';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
@@ -38,11 +47,23 @@ const MiRuteo = [
 { path: 'Juegos' ,
 component: JuegosComponent ,
 children:
-     [{path: '' , component: MenuCardComponent},
-     {path: 'Adivina' , component: AdivinaElNumeroComponent},
-      {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
-      {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-      {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
+     [
+       {path: '' , component: MenuCardComponent},
+       {path: 'Adivina' , component: AdivinaElNumeroComponent},
+       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
+       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
+       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
+       {path: 'Anagrama' , component: AnagramaComponent},
+       {path: 'AnagramaMasListado' , component: AnagramaMasListadoComponent},
+       {path: 'PiedraPapelTijera' , component: PiedraPapelTijeraComponent},
+       {path: 'PiedraPapelTijeraMasListado' , component: PiedraPapelTijeraMasListadoComponent},
+       {path: 'TaTeTi' , component: TaTeTiComponent},
+       {path: 'TaTeTiMasListado' , component: TaTeTiMasListadoComponent},
+       {path: 'Memotest' , component: MemotestComponent},
+       {path: 'MemotestMasListado' , component: MemotestMasListadoComponent},
+       {path: 'Serpiente' , component: SerpienteComponent},
+       {path: 'SerpienteMasListado' , component: SerpienteMasListadoComponent}
+     ]
 },
 {path: '**' , component: ErrorComponent},
 {path: 'error' , component: ErrorComponent}];

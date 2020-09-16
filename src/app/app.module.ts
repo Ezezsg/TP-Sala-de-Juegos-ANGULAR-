@@ -53,6 +53,16 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
+import { AnagramaMasListadoComponent } from './componentes/anagrama-mas-listado/anagrama-mas-listado.component';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { PiedraPapelTijeraMasListadoComponent } from './componentes/piedra-papel-tijera-mas-listado/piedra-papel-tijera-mas-listado.component';
+import { TaTeTiComponent } from './componentes/ta-te-ti/ta-te-ti.component';
+import { TaTeTiMasListadoComponent } from './componentes/ta-te-ti-mas-listado/ta-te-ti-mas-listado.component';
+import { MemotestComponent } from './componentes/memotest/memotest.component';
+import { MemotestMasListadoComponent } from './componentes/memotest-mas-listado/memotest-mas-listado.component';
+import { SerpienteComponent } from './componentes/serpiente/serpiente.component';
+import { SerpienteMasListadoComponent } from './componentes/serpiente-mas-listado/serpiente-mas-listado.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +88,17 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    AnagramaMasListadoComponent,
+    PiedraPapelTijeraComponent,
+    PiedraPapelTijeraMasListadoComponent,
+    TaTeTiComponent,
+    TaTeTiMasListadoComponent,
+    MemotestComponent,
+    MemotestMasListadoComponent,
+    SerpienteComponent,
+    SerpienteMasListadoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

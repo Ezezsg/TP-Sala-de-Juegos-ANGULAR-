@@ -1,5 +1,5 @@
 <div class="container" >
-    <div class="card">
+    <!-- <div class="card">
       <img class="img-thumbnail"   src="./assets/imagenes/cerebro.jpg" alt="Avatar" style="width:100%">
       <h1>Velocidad y agilidad aritmética </h1>
       <p class="title">Juego de agilidad mental</p>
@@ -36,5 +36,23 @@
       <a href="#"><i class="fa fa-linkedin"></i></a> 
       <a href="#"><i class="fa fa-facebook"></i></a> 
       <p>           <button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
-    </div>
+    </div> -->
+    <section class="row mt-3">
+
+            <article class="card col-4 p-0" *ngFor="let juego of juegos">
+              <img [src]="juego.Imagen" class="card-img-top">
+              <div class="card-body">
+                <h2 class="text-info">
+                  {{juego.Nombre}}
+                </h2>
+                <!-- <p>{{juego.Descripcion}}</p>  -->
+                <br>
+                <span class="text-info lead">
+                  {{juego.Descripcion}}
+                </span>
+                <br>
+                <a  class="btn btn-info btn-block mt-3" (click)="Juego(juego.Ruta)">Jugar</a> 
+              </div>
+            </article>
+    </section>  
   </div>
