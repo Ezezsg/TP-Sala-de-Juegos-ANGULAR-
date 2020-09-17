@@ -10,15 +10,15 @@ body {
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 { 
-    background-color: #1abc9c; /* Green */
+    background-color: #000000; /* Green */
     color: #ffffff;
 }
 .bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
+    background-color: #000000; /* Dark Blue */
     color: #ffffff;
 }
 .bg-3 { 
-    background-color: #ffffff; /* White */
+    background-color: #000000; /* White */
     color: #555555;
 }
 .bg-4 { 
