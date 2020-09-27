@@ -1,4 +1,4 @@
-<body>
+<!-- <body>
   <div class="jumbotron">
     <h2 id="terminos">Terminos y condiciones</h2>
     <p>El Gobierno de la República Argentina (en adelante el “Gobierno Nacional”) no es responsable por los daños y perjuicios que puedan surgir, incluyendo, sin límite, daños, pérdidas o gastos directos, indirectos, que surjan en relación con el uso de los Activos Digitales o la imposibilidad de uso, en relación con cualquier falla en el vencimiento, error, omisión, interrupción, defecto, demora en la operación o transmisión, virus de computadora o falla del sistema de línea, aún en el caso de que el Gobierno Nacional o sus representantes fueran informados sobre la posibilidad de dichos daños, pérdidas o gastos.</p>
@@ -44,4 +44,53 @@
   }
   </script>
   
-  </body>
+  </body> -->
+  <div class="container login-container">
+            <form class="login-form-1 form" [formGroup]="validations_form" (ngSubmit)="tryRegister(validations_form.value)">
+                <div class="imgcontainer">
+                  <img src="./assets/imagenes/register.png" alt="Avatar" class="avatar" max-width="104" >
+                </div>
+                <h3 class="mb-5">Registrarse</h3>
+                    
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Tú correo electrónico" formControlName="email" required/>
+                        </div>
+                        <div class="validation-errors mb-3">
+                          <ng-container *ngFor="let validation of validation_messages.email">
+                            <div style="color: white" class="error-message"
+                              *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+                              {{ validation.message }}
+                            </div>
+                          </ng-container>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Tú contraseña" formControlName="password" required/>
+                        </div>
+                        <div class="validation-errors mb-3">
+                          <ng-container *ngFor="let validation of validation_messages.password">
+                            <div style="color: white" class="error-message"
+                              *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+                              {{ validation.message }}
+                            </div>
+                          </ng-container>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- <input type="submit" class="btnSubmit" value="gin" /> -->
+                            <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!validations_form.valid">
+                                Registrarse
+                            </button>
+                        </div>
+                        <label style="color: white" class="error-message">{{errorMessage}}</label>
+                        <label style="color: white" class="success-message">{{successMessage}}</label>
+                        <!-- <div class="form-group">
+                            <a href="#" class="ForgetPwd">Forget Password?</a>
+                        </div> -->
+                    
+            </form>
+            <p class="go-to-login">
+              ¿Ya tienes una cuenta? <a (click)="goLoginPage()" class="cuenta">Inicie sesión.</a>
+            </p>
+            
+</div>

@@ -7,12 +7,8 @@
         <a class="py-2" href="https://github.com/Ezezsg">en GitHub <i class="fa fa-github"></i></a>
         <a class="py-2" routerLink="/QuienSoy">Quien Soy? <i class="fa fa-user"></i></a>
 
-        <button class="btn btn-dark">
-            <a routerLink="/Registro">Registrarse</a>
-        </button>
-
         <button class="btn btn-dark" type="button">
-            <a routerLink="/Login">Ingresar</a>
+            <a (click)="logout()">Cerrar sesión</a>
         </button>
   </div>
 </nav>

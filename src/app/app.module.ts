@@ -14,6 +14,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MiHttpService } from './servicios/mi-http/mi-http.service'; 
 import { PaisesService } from './servicios/paises.service';
+import { AuthenticateService } from './servicios/authentication.service';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { JugadoresService } from './servicios/jugadores.service'; 
 import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
@@ -63,6 +70,7 @@ import { MemotestMasListadoComponent } from './componentes/memotest-mas-listado/
 import { SerpienteComponent } from './componentes/serpiente/serpiente.component';
 import { SerpienteMasListadoComponent } from './componentes/serpiente-mas-listado/serpiente-mas-listado.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -107,12 +115,16 @@ import { FooterComponent } from './componentes/footer/footer.component';
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    ReactiveFormsModule,
+    NgbModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,AuthenticateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
