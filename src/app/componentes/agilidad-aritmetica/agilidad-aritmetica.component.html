@@ -3,36 +3,37 @@
 <!-- index.html -->
 
 
-<form name="juego">
-<ul>
-   <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+<div class=" justify-content-center container" style="border-style: solid; border-color: #000000;">
   
-  </li>
-  <li>
-   Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-     
-   </li>
-  <li>
-    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
-  </li>
-  <li>
-    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
-  </li>
-  <li>
-    <h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
+  <h1 class="justify-content-center">Agilidad Aritmética</h1>
+  <br>
+  <div class="justify-content-center">
 
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-  </li>
-</ul>
-
-</form>
+   <label>Primer número: </label>
+   <input [(ngModel)]="visornumUno" type="text" class="form-control" style="width:50%" readonly/>
+  
+  
+   <label>Operador: </label><input [(ngModel)]="visoroperador" type="text" class="form-control" style="width:50%" readonly/>
+    
+  
+   <label>Segundo número: </label><input [(ngModel)]="visornumDos"  type="text" class="form-control" style="width:50%" readonly/>
+    
+  
+    <label>Respuesta: </label><input [(ngModel)]="resultadoUsuario" placeholder="ingrese numero" type="text" class="form-control" style="width:50%"/>
+    
+    <br>
+   
+    <button  (click)="prepararJuego()"  class="btn btn-info btn-lg">Nuevo</button>
+    <br>
+    <br>
+  
+    <button (click)="verificar()" class="btn btn-success btn-lg">Arriesgue! </button>
+    <br>
+    <br>
+  
+    <h2 [hidden]="!bandera"><p><i  class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
+    <h1 [hidden]="!correcto" style="background-color: green">usted adivino el número</h1>
+    <h1 [hidden]="!incorrecto" style="background-color: red">"Incorrecto! era "{{resultadoSistema}} </h1>
+  
+  </div>
+</div>

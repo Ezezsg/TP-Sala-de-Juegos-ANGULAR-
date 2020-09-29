@@ -13,7 +13,7 @@ export class AdivinaElNumeroComponent implements OnInit {
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
   contador:number;
-  ocultarVerificar:boolean;
+  ocultarVerificar:boolean = true;
  
   constructor() { 
     this.nuevoJuego = new JuegoAdivina();
@@ -27,13 +27,14 @@ export class AdivinaElNumeroComponent implements OnInit {
   verificar()
   {
     this.contador++;
-    this.ocultarVerificar=true;
+    
     console.info("numero Secreto:",this.nuevoJuego.gano);  
     if (this.nuevoJuego.verificar()){
       
       this.enviarJuego.emit(this.nuevoJuego);
       this.MostarMensaje("Sos un Genio!!!",true);
       this.nuevoJuego.numeroSecreto=0;
+      this.ocultarVerificar=true;
 
     }else{
 
