@@ -8,11 +8,12 @@ import { JuegoAdivina } from '../../clases/juego-adivina'
   styleUrls: ['./adivina-el-numero.component.css']
 })
 export class AdivinaElNumeroComponent implements OnInit {
- @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
+ 
 
   nuevoJuego: JuegoAdivina;
   Mensajes:string;
   contador:number;
+  visornumeroIngresado:number;
   ocultarVerificar:boolean = true;
  
   constructor() { 
@@ -27,14 +28,13 @@ export class AdivinaElNumeroComponent implements OnInit {
   verificar()
   {
     this.contador++;
-    
+    this.ocultarVerificar=true;
     console.info("numero Secreto:",this.nuevoJuego.gano);  
     if (this.nuevoJuego.verificar()){
       
-      this.enviarJuego.emit(this.nuevoJuego);
+      
       this.MostarMensaje("Sos un Genio!!!",true);
       this.nuevoJuego.numeroSecreto=0;
-      this.ocultarVerificar=true;
 
     }else{
 
