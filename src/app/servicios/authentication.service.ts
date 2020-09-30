@@ -8,7 +8,11 @@ export class AuthenticateService {
 
   constructor(
     private afAuth: AngularFireAuth
-  ) { }
+  )
+  {
+    
+
+  }
 
   //registrar un nuevo usuario en el servicio de autenticación de Firebase
   registerUser(value) {
