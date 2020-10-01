@@ -1,3 +1,38 @@
-<p>
-  anagrama works!
-</p>
+<div class=" justify-content-center container" style="border-style: solid; border-color: #000000;">
+
+		<h1 class="justify-content-center">Anagrama</h1>
+  		<br>
+
+                        <label align="left">Palabra mezclada</label>
+                        <div class="alert" >
+                        <h3>{{palabra_Mezclada}}</h3>                        
+                        </div> 
+
+                        <div class="clearfix">
+                        <label class=" float-left">Escriba que palabra es:</label>
+                        
+                        <label class="ml-3">Intentos:{{intentos_Usuario}} / {{intentos_Sistema}}</label>
+                        </div> 
+                        
+                    <div class="row">                       
+                            
+                        <div class="col-sm-9" >
+                        <input class="form-control" type="text" placeholder="Introduzca la palabra" [(ngModel)]="palabra_Usuario">
+                        </div> 
+                            
+                        <div class="col-sm-3">
+                        <button class="btn btn-success btn-block BtnAzul" name="BtnAdivinar" (click)="verificar()" >Verificar</button>  
+                        </div>
+
+                        <div class="col-sm-12 mt-3">
+                        <button class="btn btn-info btn-block" name="BtnNuevo" (click)="generarJuego()">Juego nuevo</button>
+                        </div>
+                    </div>
+        
+                <br>
+                <h5 align="center" [hidden]="!correcto" style="background-color: green">{{mensaje}}</h5>
+                <h5 align="center" [hidden]="!incorrecto" style="background-color: red">{{mensaje}}</h5>
+                <h5>{{mensajeFinal}}</h5>
+                <br>
+
+</div>
