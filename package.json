@@ -10,7 +10,7 @@
     "test": "ng test",
     "e2e": "ng e2e",
     "lite": "lite-server",
-    "postinstall": "ng build --prod --aot",
+    "postinstall": "ng build --aot --prod",
     "lint": "tsc --noEmit && eslint . --ext js,ts,json --quiet --fix"
   },
   "private": true,
