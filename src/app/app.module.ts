@@ -72,6 +72,7 @@ import { SerpienteComponent } from './componentes/serpiente/serpiente.component'
 import { SerpienteMasListadoComponent } from './componentes/serpiente-mas-listado/serpiente-mas-listado.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFireModule.initializeApp(environment.firebase),
     ReactiveFormsModule,
     AngularFireDatabaseModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

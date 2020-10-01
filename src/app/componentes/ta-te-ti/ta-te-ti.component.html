@@ -1,3 +1,21 @@
-<p>
-  ta-te-ti works!
-</p>
+
+<div class=" justify-content-center container" style="border-style: solid; border-color: #000000;">
+	<h1 class="justify-content-center">Ta Te Ti</h1>
+  	<br>
+    <div style="text-align: center">
+  		<button (click)="presion(0,0)" class="casilla">{{posiciones[0][0]}}</button>
+  		<button (click)="presion(0,1)" class="casilla">{{posiciones[0][1]}}</button>
+  		<button (click)="presion(0,2)" class="casilla">{{posiciones[0][2]}}</button>
+  		<br>
+  		<button (click)="presion(1,0)" class="casilla">{{posiciones[1][0]}}</button>
+  		<button (click)="presion(1,1)" class="casilla">{{posiciones[1][1]}}</button>
+  		<button (click)="presion(1,2)" class="casilla">{{posiciones[1][2]}}</button>
+  		<br>
+  		<button (click)="presion(2,0)" class="casilla">{{posiciones[2][0]}}</button>
+  		<button (click)="presion(2,1)" class="casilla">{{posiciones[2][1]}}</button>
+  		<button (click)="presion(2,2)" class="casilla">{{posiciones[2][2]}}</button>
+	</div>
+	<div style="text-align: center">
+  		<button class="btn btn-primary" (click)="reiniciar()">Reiniciar</button>
+	</div>
+</div>
