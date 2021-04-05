@@ -8,29 +8,17 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class MenuCardComponent implements OnInit {
 
   juegos = [
-    { 
-      Ruta:"Anagrama",
-      Nombre:"Anagrama", 
-      Descripcion:"Crea una palabra a partir de la reordenación de las letras de otra palabra.",
-      Imagen: "./assets/imagenes/anagrama.jpg"
-    },
+    // { 
+    //   Ruta:"Anagrama",
+    //   Nombre:"Anagrama", 
+    //   Descripcion:"Crea una palabra a partir de la reordenación de las letras de otra palabra.",
+    //   Imagen: "./assets/imagenes/anagrama.jpg"
+    // },
     { 
       Ruta:"PiedraPapelTijera",
       Nombre:"Piedra Papel o Tijera", 
       Descripcion:'Selecciona entre, "'+"piedra"+'", "'+"papel"+'" o "'+"tijera"+'", la piedra aplasta a la tijera, la tijera corta el papel y el papel envuelve a la piedra.',
       Imagen: "./assets/imagenes/ppt.jpg"
-    },
-    { 
-      Ruta:"Agilidad",
-      Nombre:"Agilidad Aritmética", 
-      Descripcion:"Se presenta una cuenta aritmética y tienes un tiempo para contestar.",
-      Imagen: "./assets/imagenes/aritmetica.jpg"
-    },
-    { 
-      Ruta:"Adivina",
-      Nombre:"Adivina el Número", 
-      Descripcion:"Tienes que utilizar tu lógica para adivinar un número secreto.",
-      Imagen: "./assets/imagenes/adivina.png"
     },
     { 
       Ruta:"TaTeTi",
@@ -44,12 +32,24 @@ export class MenuCardComponent implements OnInit {
       Descripcion:"En un tablero de fichas repetidas y mezcladas que están boca abajo formando un cuadro, se deberá ir dando vuelta primero una ficha, luego otra tratando que sean pares, hasta que se terminen las fichas.",
       Imagen: "./assets/imagenes/memotest.png"
     },
+    // { 
+    //   Ruta:"Adivina",
+    //   Nombre:"Adivina el Número", 
+    //   Descripcion:"Tienes que utilizar tu lógica para adivinar un número secreto.",
+    //   Imagen: "./assets/imagenes/adivina.png"
+    // },
     { 
-      Ruta:"Serpiente",
-      Nombre:"La Serpiente", 
-      Descripcion:"Controlas a una serpiente que se desplaza moviendo solo su cabeza con las 4 direcciones del teclado, deberas recojer los objetos haciendo que ésta aumente de velocidad. Evita los bordes del mapa.",
-      Imagen: "./assets/imagenes/serpiente.png"
-    }
+      Ruta:"Agilidad",
+      Nombre:"Agilidad Aritmética", 
+      Descripcion:"Se presenta una cuenta aritmética y tienes un tiempo para contestar.",
+      Imagen: "./assets/imagenes/aritmetica.jpg"
+    },
+    // { 
+    //   Ruta:"Serpiente",
+    //   Nombre:"La Serpiente", 
+    //   Descripcion:"Controlas a una serpiente que se desplaza moviendo solo su cabeza con las 4 direcciones del teclado, deberas recojer los objetos haciendo que ésta aumente de velocidad. Evita los bordes del mapa.",
+    //   Imagen: "./assets/imagenes/serpiente.png"
+    // }
   ];
 
   constructor(private route: ActivatedRoute,
