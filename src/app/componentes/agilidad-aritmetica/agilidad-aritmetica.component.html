@@ -23,11 +23,11 @@
     
     <br>
    
-    <button  (click)="prepararJuego()"  class="btn btn-info btn-lg">Nuevo</button>
+    <button  (click)="prepararJuego()" *ngIf="!bandera"  class="btn btn-info btn-lg">Nuevo</button>
     <br>
     <br>
   
-    <button (click)="verificar()" class="btn btn-success btn-lg">Arriesgue! </button>
+    <button (click)="verificar()" *ngIf="bandera" class="btn btn-success btn-lg">Arriesgue! </button>
     <br>
     <br>
   

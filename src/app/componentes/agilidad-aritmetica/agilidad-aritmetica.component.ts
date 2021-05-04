@@ -24,7 +24,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   resultadoSistema:number;
   correcto:boolean = false;
   incorrecto:boolean = false;
-  bandera:boolean = false; 
+  public bandera:boolean = false; 
 
   ocultarVerificar: boolean=false;
   Tiempo: number;
@@ -37,6 +37,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   puntos:number; 
 
   ngOnInit() {
+    
   }
    constructor() {
        
@@ -49,9 +50,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.bandera = true;
     this.generarCalculo();
     
-    setTimeout(() => {
-      this.verificar()
-    }, 10000);
+    setInterval(() => {
+      this.verificar();
+    }, 20000);
 
   }
 
