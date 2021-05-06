@@ -14,7 +14,8 @@ export const environment = {
     messagingSenderId: "21177430505",
     appId: "1:21177430505:web:eb9608cf2c47a3558edb78",
     measurementId: "G-WB670Y63TV"
-  }
+  },
+  urlPaises: 'https://restcountries.eu/rest/v2/'
 };
 
   

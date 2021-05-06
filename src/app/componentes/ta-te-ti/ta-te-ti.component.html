@@ -3,19 +3,21 @@
 	<h1 class="justify-content-center">Ta Te Ti</h1>
   	<br>
     <div style="text-align: center">
-  		<button (click)="presion(0,0)" class="casilla">{{posiciones[0][0]}}</button>
-  		<button (click)="presion(0,1)" class="casilla">{{posiciones[0][1]}}</button>
-  		<button (click)="presion(0,2)" class="casilla">{{posiciones[0][2]}}</button>
+  		<button [ngClass]="{circulo: casilleros[0] == 'o', cruz: casilleros[0] == 'x'}" (click)="jugar(0)" class="casilla"></button>
+  		<button [ngClass]="{circulo: casilleros[1] == 'o', cruz: casilleros[1] == 'x'}" (click)="jugar(1)" class="casilla"></button>
+  		<button [ngClass]="{circulo: casilleros[2] == 'o', cruz: casilleros[2] == 'x'}" (click)="jugar(2)" class="casilla"></button>
   		<br>
-  		<button (click)="presion(1,0)" class="casilla">{{posiciones[1][0]}}</button>
-  		<button (click)="presion(1,1)" class="casilla">{{posiciones[1][1]}}</button>
-  		<button (click)="presion(1,2)" class="casilla">{{posiciones[1][2]}}</button>
+  		<button [ngClass]="{circulo: casilleros[3] == 'o', cruz: casilleros[3] == 'x'}" (click)="jugar(3)" class="casilla"></button>
+  		<button [ngClass]="{circulo: casilleros[4] == 'o', cruz: casilleros[4] == 'x'}" (click)="jugar(4)" class="casilla"></button>
+  		<button [ngClass]="{circulo: casilleros[5] == 'o', cruz: casilleros[5] == 'x'}" (click)="jugar(5)" class="casilla"></button>
   		<br>
-  		<button (click)="presion(2,0)" class="casilla">{{posiciones[2][0]}}</button>
-  		<button (click)="presion(2,1)" class="casilla">{{posiciones[2][1]}}</button>
-  		<button (click)="presion(2,2)" class="casilla">{{posiciones[2][2]}}</button>
+  		<button [ngClass]="{circulo: casilleros[6] == 'o', cruz: casilleros[6] == 'x'}" (click)="jugar(6)" class="casilla"></button>
+  		<button [ngClass]="{circulo: casilleros[7] == 'o', cruz: casilleros[7] == 'x'}" (click)="jugar(7)" class="casilla"></button>
+  		<button [ngClass]="{circulo: casilleros[8] == 'o', cruz: casilleros[8] == 'x'}" (click)="jugar(8)" class="casilla"></button>
 	</div>
 	<div style="text-align: center">
-  		<button class="btn btn-primary" (click)="reiniciar()">Reiniciar</button>
+  		<!-- <button class="btn btn-primary" (click)="reiniciar()">Reiniciar</button> -->
 	</div>
+	<h1 class="mat-display-1" style="font-weight: 900; text-align: center; ">{{mensaje}}</h1>
 </div>
+	

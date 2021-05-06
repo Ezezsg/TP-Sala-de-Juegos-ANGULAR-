@@ -1,5 +1,18 @@
 .casilla {
     height: 5rem;
+    width: 5rem;
     margin: 0.5rem;
-    font-size: 3rem;
+    
+}
+
+.circulo {
+    background-image: url("../../../assets/imagenes/circulo.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.cruz {
+    background-image: url("../../../assets/imagenes/cruz.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
 }

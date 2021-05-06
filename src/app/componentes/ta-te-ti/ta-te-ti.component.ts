@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegoServiceService } from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-ta-te-ti',
@@ -7,59 +8,109 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaTeTiComponent implements OnInit {
 
-  constructor() {
-  	
+  mensaje:string;
+  comenzar:boolean = false;
+  casilleros: any;
+
+  constructor(
+    private juegoService: JuegoServiceService
+  ) { 
+    this.casilleros = new Array(9);
   }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
   }
 
-  posiciones=[['-','-','-'],
-              ['-','-','-'],
-              ['-','-','-']];
-  jugador='O';
-  
-
-  presion(fila:number,columna:number) {
-    if (this.posiciones[fila][columna]=='-') {
-      this.posiciones[fila][columna]=this.jugador;
-      this.verificarGano('X');
-      this.verificarGano('O');
-      this.cambiarJugador();
+  jugar(numeroCasillero:number){
+    if(!this.casilleros[numeroCasillero]){
+      this.casilleros[numeroCasillero] = "x";
+      if(this.gano("x")){
+        this.mensaje = "GANO";
+        this.reiniciar();
+      }
+      else if(this.gano("o")){
+        this.mensaje = "PERDIO"!;
+        this.reiniciar();
+      }
+      else if(this.empate()){
+        this.mensaje = "EMPATE";
+        this.reiniciar();
+      }
+      else{
+        setTimeout(() => this.juegaMaquina(), 500);
+      }
     }
   }
 
-  reiniciar() {
-    for(let f=0;f<3;f++)
-      for(let c=0;c<3;c++)
-        this.posiciones[f][c]='-';
+  reiniciar(){
+    setTimeout(() => {
+      this.casilleros = new Array(9);
+    //   this.juegoService.setResult({
+    //     juego: 'TaTeTi',
+    //     puntaje: this.mensaje 
+    //   })
+    //   .then(result => {
+    //     console.log(result);
+    //   })
+    //   .catch(err => {
+    //     console.log('Error ->', err);
+    //   });
+       this.mensaje = "";
+     }, 1000
+    );
   }
 
-  cambiarJugador() {
-    if (this.jugador=='O')
-      this.jugador='X';
-    else
-      this.jugador='O';    
+  empate():boolean{
+    let retorno = true;
+    for (let index = 0; index < this.casilleros.length; index++) {
+      if(!this.casilleros[index]){
+        retorno = false;
+        break;
+      }
+    }
+    return retorno;
   }
- 
 
-  verificarGano(ficha: string) {
-    if (this.posiciones[0][0]==ficha && this.posiciones[0][1]==ficha && this.posiciones[0][2]==ficha)
-      alert('Gano:'+ficha);
-    if (this.posiciones[1][0]==ficha && this.posiciones[1][1]==ficha && this.posiciones[1][2]==ficha)
-      alert('Gano:'+ficha);
-    if (this.posiciones[2][0]==ficha && this.posiciones[2][1]==ficha && this.posiciones[2][2]==ficha)
-      alert('Gano:'+ficha);
-    if (this.posiciones[0][0]==ficha && this.posiciones[1][0]==ficha && this.posiciones[2][0]==ficha)
-      alert('Gano:'+ficha);
-    if (this.posiciones[0][1]==ficha && this.posiciones[1][1]==ficha && this.posiciones[2][1]==ficha)
-      alert('Gano:'+ficha);
-    if (this.posiciones[0][2]==ficha && this.posiciones[1][2]==ficha && this.posiciones[2][2]==ficha)
-      alert('Gano:'+ficha);      
-    if (this.posiciones[0][0]==ficha && this.posiciones[1][1]==ficha && this.posiciones[2][2]==ficha)
-      alert('Gano:'+ficha);
-    if (this.posiciones[0][2]==ficha && this.posiciones[1][1]==ficha && this.posiciones[2][0]==ficha)
-      alert('Gano:'+ficha);      
+  juegaMaquina(){
+    let disponible = false;
+    let numCasillero;
+    while(!disponible){
+      numCasillero = Math.floor(Math.random() * 9 + 0);
+      if(!this.casilleros[numCasillero]){
+        disponible = true;
+      }
+    }
+    this.casilleros[numCasillero] = "o";
+  } 
+
+  gano(letra:string):boolean {
+
+    if(this.casilleros[0] == letra && this.casilleros[1] == letra && this.casilleros[2] == letra) {
+      return true;
+    }
+    if(this.casilleros[3] == letra && this.casilleros[4] == letra && this.casilleros[5] == letra) {
+      return true;
+    }
+    if(this.casilleros[6] == letra && this.casilleros[7] == letra && this.casilleros[8] == letra) {
+      return true;
+    }
+
+    if(this.casilleros[0] == letra && this.casilleros[3] == letra && this.casilleros[6] == letra) {
+      return true;
+    }
+    if(this.casilleros[1] == letra && this.casilleros[4] == letra && this.casilleros[7] == letra) {
+      return true;
+    }
+    if(this.casilleros[2] == letra && this.casilleros[5] == letra && this.casilleros[8] == letra) {
+      return true;
+    }
+
+    if(this.casilleros[0] == letra && this.casilleros[4] == letra && this.casilleros[8] == letra) {
+      return true;
+    }
+    if(this.casilleros[2] == letra && this.casilleros[4] == letra && this.casilleros[6] == letra) {
+      return true;
+    }
+    return false;
   }
 }
