@@ -37,7 +37,7 @@ export class TaTeTiComponent implements OnInit {
         this.reiniciar();
       }
       else{
-        setTimeout(() => this.juegaMaquina(), 500);
+        setTimeout(() => this.juegaMaquina(), 0);
       }
     }
   }
