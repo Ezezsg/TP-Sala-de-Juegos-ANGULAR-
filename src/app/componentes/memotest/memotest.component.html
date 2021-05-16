@@ -1,0 +1,57 @@
+<div class=" justify-content-center container" style="border-style: solid; border-color: #000000;">
+  <h1 style=" text-align: center; color: black">MemoTest</h1>
+  <div *ngIf="!comenzo" class="field">
+      <button class="btn-empezar" mat-raised-button color="accent" (click)="empezar()">Empezar</button>
+  </div>
+  <h1 class="mat-display-1" style="font-weight: 900; text-align: center; color: black">{{mensaje}}</h1>
+  <div *ngIf="reiniciar" class="field">
+      <button class="btn-empezar" mat-raised-button color="accent" (click)="onReiniciar()">Reiniciar</button>
+  </div>
+  <div class="container-fluid h-100" *ngIf="comenzo">
+    <div class="row fila-juego">
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[0]" [ngStyle]="{'background-image': 'url(' + fotos[0] + ')'}" (click)="juega(0)"></div>
+        </div>
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[1]" [ngStyle]="{'background-image': 'url(' + fotos[1] + ')'}" (click)="juega(1)"></div>
+        </div>
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[2]" [ngStyle]="{'background-image': 'url(' + fotos[2] + ')'}" (click)="juega(2)"></div>
+        </div>
+    </div>
+    <div class="row fila-juego">
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[3]" [ngStyle]="{'background-image': 'url(' + fotos[3] + ')'}" (click)="juega(3)"></div>
+        </div>
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[4]" [ngStyle]="{'background-image': 'url(' + fotos[4] + ')'}" (click)="juega(4)"></div>
+        </div>
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[5]" [ngStyle]="{'background-image': 'url(' + fotos[5] + ')'}" (click)="juega(5)"></div>
+        </div>
+    </div>
+    <div class="row fila-juego">
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[6]" [ngStyle]="{'background-image': 'url(' + fotos[6] + ')'}" (click)="juega(6)"></div>
+        </div>
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[7]" [ngStyle]="{'background-image': 'url(' + fotos[7] + ')'}" (click)="juega(7)"></div>
+        </div>
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[8]" [ngStyle]="{'background-image': 'url(' + fotos[8] + ')'}" (click)="juega(8)"></div>
+        </div>
+    </div>
+    <div class="row fila-juego">
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[9]" [ngStyle]="{'background-image': 'url(' + fotos[9] + ')'}" (click)="juega(9)"></div>
+        </div>
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[10]" [ngStyle]="{'background-image': 'url(' + fotos[10] + ')'}" (click)="juega(10)"></div>
+        </div>
+        <div class="col columna-juego">
+            <div class="cuadro h-100" [disabled]="deshabilitar[11]" [ngStyle]="{'background-image': 'url(' + fotos[11] + ')'}" (click)="juega(11)"></div>
+        </div>
+    </div>
+</div>
+  
+</div>

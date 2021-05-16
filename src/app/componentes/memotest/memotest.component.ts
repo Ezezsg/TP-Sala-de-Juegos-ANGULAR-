@@ -12,17 +12,21 @@ import { HttpClient } from '@angular/common/http';
 export class MemotestComponent implements OnInit {
 	
 	userEmail: string;
-	banderas: any;
+	public deshabilitar:boolean[] = [];
+  	public comenzo:boolean;
+  	public mensaje:string;
+  	public fotos: string[] = [];
+  	public banderas: string[] = [];
+  	public indexAux: any;
+  	public reiniciar:boolean;
+  	public fallos:number;
 
 	constructor(
     private js: ServicoJuegosService,
     private user: AuthenticateService,
     private http: HttpClient
   ) { }
-	ngOnDestroy(): void {
-		throw new Error('Method not implemented.');
-	}
-
+	
 	ngOnInit(): void {
     this.user.userDetails().subscribe(res => {
       console.log('res', res);
@@ -32,7 +36,7 @@ export class MemotestComponent implements OnInit {
     }, )
     this.http.get('https://restcountries.eu/rest/v2/all').subscribe((data)=>{
 
-      for(let i=0;i<=7;i++)
+      for(let i=0;i<=5;i++)
       {
         let j;
         do{
@@ -45,8 +49,94 @@ export class MemotestComponent implements OnInit {
 
       console.log(this.banderas);
     });
-		
+	this.comenzarJuego();	
 	}
+
+  	comenzarJuego(){
+    	this.comenzo = false;
+    	this.reiniciar = false;
+    	this.deshabilitar = [];
+    	this.fallos = 0;
+    	const listaIndex:number[] = new Array();
+    	 for (let i = 0; i < this.banderas.length; i++) {
+      	 	const j = Math.floor(Math.random() * this.banderas.length+0);
+      	 	if((listaIndex.length == 0 || listaIndex.indexOf(j) == -1) && i != j){
+         		const temp = this.banderas[j];
+         		this.banderas[j] = this.banderas[i];
+         		this.banderas[i] = temp;
+      	 	}
+      	 	else{
+         		i --;
+      		}
+    	 }
+    	this.fotos = this.banderas;
+  	}
+
+  	juega(index:number){
+    	this.fotos[index] = this.banderas[index];
+    	this.deshabilitar[index] = true;
+    		if(this.indexAux != null){
+      			if(this.indexAux != index){
+        			if(this.fotos[this.indexAux] == this.fotos[index]){
+          				this.mensaje = "¡BIEEN!";
+          				this.indexAux = null;
+        			}
+        			else{
+          				setTimeout(() => this.eligioMal(index), 100);
+        			}
+      			}
+    		}
+    		else{
+      			this.indexAux = index;
+    		}
+    	if(this.verificarGano()){
+      		this.mensaje = "GANO CON " + this.fallos + " FALLOS";
+      		// this.js.setResult({
+        	// 	juego: 'MemoTest',
+        	// 	puntaje: this.mensaje
+      		// })
+      		// .then(result => {
+        	// 	console.log(result);
+      		// })
+      		// .catch(err => {
+        	// 	console.log('Error ->', err);
+      		// });
+			
+      		this.reiniciar = true;
+    	}
+ 	}
+
+  	verificarGano():boolean{
+    	let retorno = this.fotos.length == 12;
+    	for (let i = 0; i < this.fotos.length; i++) {
+      		if(!this.fotos[i]){
+        		retorno = false;
+        		break;
+      		}
+    	}
+    	return retorno;
+  	}
+
+
+  	eligioMal(index:number){
+    	this.fallos ++;
+    	this.mensaje = "Mal - Fallaste "+ this.fallos +" vez";
+    	this.fotos[this.indexAux] = null;
+    	this.fotos[index] = null;
+    	this.deshabilitar[this.indexAux] = false;
+    	this.deshabilitar[index] = false;
+    	this.indexAux = null;
+  	}
+
+  	empezar(){
+    	this.fotos = [];
+    	this.comenzo = true;
+  	}
+
+  	onReiniciar(){ 
+		this.mensaje= "";  
+    	this.comenzarJuego();
+  	}
 
 	
 }

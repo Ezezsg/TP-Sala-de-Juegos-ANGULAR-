@@ -75,6 +75,7 @@ import { SerpienteMasListadoComponent } from './componentes/serpiente-mas-listad
 import { FooterComponent } from './componentes/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChatComponent } from './componentes/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MemotestMasListadoComponent,
     SerpienteComponent,
     SerpienteMasListadoComponent,
-    FooterComponent
+    FooterComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
