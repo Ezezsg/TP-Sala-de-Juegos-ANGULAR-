@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MemotestComponent implements OnInit {
 	
+	nombreDelJuegoChat:string = "mt"
 	userEmail: string;
 	public deshabilitar:boolean[] = [];
   	public comenzo:boolean;

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PiedraPapelTijeraComponent implements OnInit {
 
+  nombreDelJuegoChat:string = "ppt"
   jugadaUsuario:string=null;
   jugadaSistema:string;
   mensaje:string;

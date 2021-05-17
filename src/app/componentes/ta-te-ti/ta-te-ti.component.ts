@@ -8,6 +8,7 @@ import { JuegoServiceService } from '../../servicios/juego-service.service';
 })
 export class TaTeTiComponent implements OnInit {
 
+  nombreDelJuegoChat:string = "ttt"
   mensaje:string;
   comenzar:boolean = false;
   casilleros: any;

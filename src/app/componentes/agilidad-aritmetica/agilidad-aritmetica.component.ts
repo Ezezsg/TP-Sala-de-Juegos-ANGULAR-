@@ -10,6 +10,7 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
 })
 export class AgilidadAritmeticaComponent implements OnInit {
    
+  nombreDelJuegoChat:string = "aa"
   numUno:number=0;
   operador:string="?";
   numDos:number=0;

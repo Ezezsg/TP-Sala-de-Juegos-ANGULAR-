@@ -1,1 +1,25 @@
-<p>chat works!</p>
+<div style="margin-top:15px" class="animated fadeInUp" style=" overflow-y: auto; height: 500px;">
+    <h1>Chat</h1>
+    <div class="row mb-2" *ngFor="let message of messages" >
+      <div class="col-12" >
+        <div class="arrow_box_rigth" *ngIf="message.username == userEmail">
+          <span class="autor">{{message.fecha}}</span> {{ message.message }}
+        </div>
+        <div class="arrow_box_left" *ngIf="message.username != userEmail">
+          <span class="autor">{{ message.username }} {{message.fecha}}</span> {{ message.message }}
+        </div>
+      </div>
+    </div>
+   
+    
+</div>
+<div>
+  <div class="elem">
+      <input type="text" maxlength="60" [(ngModel)]="message" placeholder="escriba aqui...">
+  </div>
+  
+  <div >
+      <button type="button" class="btn btn-primary" (click)="sendMessage()">Enviar</button>
+      
+  </div>
+</div>  
