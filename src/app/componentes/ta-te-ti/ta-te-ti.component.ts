@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JuegoServiceService } from '../../servicios/juego-service.service';
+import { ServicoJuegosService } from '../../servicios/servico-juegos.service';
 
 @Component({
   selector: 'app-ta-te-ti',
@@ -12,9 +12,10 @@ export class TaTeTiComponent implements OnInit {
   mensaje:string;
   comenzar:boolean = false;
   casilleros: any;
+  public puntajeFinal: number = 100;
 
   constructor(
-    private juegoService: JuegoServiceService
+    private js: ServicoJuegosService
   ) { 
     this.casilleros = new Array(9);
   }
@@ -46,16 +47,16 @@ export class TaTeTiComponent implements OnInit {
   reiniciar(){
     setTimeout(() => {
       this.casilleros = new Array(9);
-    //   this.juegoService.setResult({
-    //     juego: 'TaTeTi',
-    //     puntaje: this.mensaje 
-    //   })
-    //   .then(result => {
-    //     console.log(result);
-    //   })
-    //   .catch(err => {
-    //     console.log('Error ->', err);
-    //   });
+       this.js.setResult({
+         juego: 'TaTeTi',
+         puntaje: this.puntajeFinal
+       })
+       .then(result => {
+         console.log(result);
+       })
+       .catch(err => {
+         console.log('Error ->', err);
+       });
        this.mensaje = "";
      }, 1000
     );

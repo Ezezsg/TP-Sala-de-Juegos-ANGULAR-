@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicoJuegosService } from '../../servicios/servico-juegos.service';
 
 @Component({
   selector: 'app-piedra-papel-tijera',
@@ -22,8 +23,11 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
   correcto:boolean = false;
   incorrecto:boolean = false;
+  public puntajeFinal: number = 100;
 
-  constructor() {
+  constructor(
+    private js: ServicoJuegosService
+  ) {
   	this.prepararJuego();
   }
 
@@ -89,7 +93,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
         else
         {      
           this.resultado = false;
-          
+          this.puntos = -10;
           this.mensaje = "Usted perdio";
         }
       }
@@ -107,7 +111,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
         else
         {      
           this.resultado = false;
-          
+          this.puntos = -10;
           this.mensaje = "Usted perdio";
         }
       }
@@ -125,7 +129,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
         else
         {      
           this.resultado = false;
-          
+          this.puntos = -10;
           this.mensaje = "Usted perdio";
         }
       }      
@@ -139,7 +143,8 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
 
     
-    this.mensaje += ". Sumo "+ this.puntos +"Pts., haga click en 'Intentar otra vez' e intente con otra jugada.";
+    // this.mensaje += ". Sumo "+ this.puntos +"Pts., haga click en 'Intentar otra vez' e intente con otra jugada.";
+    this.mensaje += " haga click en 'Intentar otra vez' e intente con otra jugada.";
 
     switch (this.jugadaSistema)
     {
@@ -208,7 +213,16 @@ desmarcarBotones()
 finDelJuego()
 {
   this.empieza = false;
-  //guardo
+  this.js.setResult({
+    juego: 'Piedra Papel o Tijera',
+    puntaje: this.puntajeFinal + this.puntos
+    })
+    .then(result => {
+    console.log(result);
+    })
+    .catch(err => {
+    console.log('Error ->', err);
+    });
   
 }
 

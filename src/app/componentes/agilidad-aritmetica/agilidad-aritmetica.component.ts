@@ -1,8 +1,6 @@
-import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
-import { JuegoAgilidad } from '../../clases/juego-agilidad'
+import { Component, OnInit } from '@angular/core';
+import { ServicoJuegosService } from '../../servicios/servico-juegos.service';
 
-import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
@@ -36,11 +34,14 @@ export class AgilidadAritmeticaComponent implements OnInit {
   aciertosPositivos:number = 0;
 
   puntos:number; 
+  public puntajeFinal: number = 100;
 
   ngOnInit() {
     
   }
-   constructor() {
+   constructor(
+    private js: ServicoJuegosService
+   ) {
        
   }
 
@@ -127,7 +128,17 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.bandera = false;
       if (this.resultadoUsuario == this.resultadoSistema){
         this.puntos = 10;
-        //guardo
+        this.puntajeFinal += this.puntos;
+        this.js.setResult({
+          juego: 'Agilidad Aritmética',
+          puntaje: this.puntajeFinal
+          })
+          .then(result => {
+          console.log(result);
+          })
+          .catch(err => {
+          console.log('Error ->', err);
+          });
         this.correcto = true;
       }
       else{

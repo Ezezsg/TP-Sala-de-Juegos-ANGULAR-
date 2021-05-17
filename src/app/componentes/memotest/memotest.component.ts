@@ -21,6 +21,7 @@ export class MemotestComponent implements OnInit {
   	public indexAux: any;
   	public reiniciar:boolean;
   	public fallos:number;
+	public puntajeFinal: number = 100;
 
 	constructor(
     private js: ServicoJuegosService,
@@ -92,16 +93,16 @@ export class MemotestComponent implements OnInit {
     		}
     	if(this.verificarGano()){
       		this.mensaje = "GANO CON " + this.fallos + " FALLOS";
-      		// this.js.setResult({
-        	// 	juego: 'MemoTest',
-        	// 	puntaje: this.mensaje
-      		// })
-      		// .then(result => {
-        	// 	console.log(result);
-      		// })
-      		// .catch(err => {
-        	// 	console.log('Error ->', err);
-      		// });
+      		this.js.setResult({
+        	juego: 'Memotest',
+        	puntaje: this.puntajeFinal - this.fallos
+      		})
+      		.then(result => {
+        	console.log(result);
+      		})
+      		.catch(err => {
+        	console.log('Error ->', err);
+      		});
 			
       		this.reiniciar = true;
     	}
