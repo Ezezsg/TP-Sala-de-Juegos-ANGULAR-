@@ -1,0 +1,126 @@
+<app-cabecera>  </app-cabecera>
+<h1 class="text-center mb-5 mt-5" >Encuesta</h1>
+<div class="container">
+  <form [formGroup]="forma" (ngSubmit)="aceptar()" *ngIf="!seGuardo">
+    
+    <div class="row formulario">
+      <div class="col-md-6 mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
+        <small class="invalid" *ngIf="forma.get('nombre')?.errors?.required && forma.get('nombre')?.touched" >El nombre es requerido</small>
+        <!-- <small class="invalid" 
+        *ngIf="forma.controls.nombre.errors?.containsSpaces &&
+        forma.controls.nombre.touched">
+        El nombre no puede contener espacios
+      	</small> -->
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" formControlName="apellido">
+        <small class="invalid" *ngIf="forma.get('apellido')?.errors?.required &&
+          forma.controls.apellido.touched">El apellido es requerido</small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="edad" class="form-label">Edad</label>
+        <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+        <small class="invalid" *ngIf="forma.get('edad')?.errors?.required  &&
+          forma.controls.edad.touched">La edad es requerida</small>
+        <small class="invalid"
+          *ngIf="forma.controls.edad.errors?.min || 
+          forma.controls.edad.errors?.max &&
+          forma.controls.edad.touched">
+          La edad debe ser de 18 a 99 años
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="telefono" class="form-label" >Telefono</label>
+        <input type="text" class="form-control" id="telefono" placeholder="Ingrese telefono" formControlName="telefono" maxlength="10">
+        <small class="invalid" *ngIf="forma.get('telefono')?.errors?.required && forma.controls.telefono.touched">
+            El telefono es requerido
+        </small>
+        <small class="invalid" *ngIf="forma.get('telefono')?.errors?.pattern && forma.controls.telefono.touched">
+          Ingrese solo números
+        </small>
+        <!-- <small class="invalid" *ngIf="forma.controls.edad.errors?.maxLength && forma.controls.telefono.touched">
+          Ingrese como máximo 10 números
+        </small> -->
+      </div>
+
+      <div class="col-md-12 mb-5">
+        <h3 for="juego" class="mt-5 mb-4">Seleccione que juego va a calificar</h3>
+        <label for="juego" class="form-label">Seleccione el juego &nbsp;&nbsp;</label>
+        <select class="form-select" id="juego" formControlName="juego">
+            <option value="" selected="true">Seleccione uno</option>
+            <option value="Piedra Papel o Tijera">Piedra Papel o Tijera</option>
+            <option value="TaTeTi">TaTeTi</option>
+            <option value="Memotest">Memotest</option>
+            <option value="Agilidad Aritmética">Agilidad Aritmética</option>
+        </select>  
+      </div>
+
+      <div class="col-md-12 mb-5">
+        <label for="texto" class="form-label">Ingrese su opinión</label>
+        <textarea type="texto" class="form-control" id="texto" placeholder="Ingrese su opinión" formControlName="texto"  rows="3"></textarea>
+        <small class="invalid" *ngIf="forma.get('texto')?.errors?.required &&
+          forma.controls.texto.touched">Su opinion es requerida
+        </small>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <h3 class="mb-4">Califique que le pareció el juego</h3>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="radio1" value="Muy Bueno" formControlName="calificacion">
+          <label for="radio1" class="form-check-label">
+            Muy Bueno
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="radio2" value="Bueno" formControlName="calificacion">
+          <label for="radio2" class="form-check-label">
+            Bueno
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="radio3" value="Malo" formControlName="calificacion">
+          <label for="radio3" class="form-check-label">
+            Malo
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="radio4" value="Muy Malo" formControlName="calificacion">
+          <label for="radio4" class="form-check-label">
+            Muy Malo
+          </label>
+        </div>
+          
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12 mb-5">
+          <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
+              <label for="recordar" class="form-check-label" for="terminos">
+                  Aceptar términos y condiciones
+              </label>
+              <small class="invalid" *ngIf="forma.get('terminos')?.errors?.required && forma.get('terminos')?.touched">
+                  Le falto aceptar los términos y condiciones</small>
+          </div>
+      </div>
+      <div class="col-md-12 d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="forma.invalid" >
+          <!-- <button type="submit" class="btn btn-primary btn-block"> -->
+              Aceptar
+          </button>
+      </div>
+  </div>
+      
+    
+  </form>
+  <div *ngIf="seGuardo">
+    <h1 class="text-center">Encuesta Guardada</h1>
+  </div>  
+</div>
+<br>
+<app-footer></app-footer>

@@ -142,7 +142,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         this.correcto = true;
       }
       else{
-        //guardo
+        
         this.incorrecto = true;
       }
     

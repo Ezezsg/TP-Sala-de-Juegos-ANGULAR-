@@ -23,7 +23,7 @@ export class MenuCardComponent implements OnInit {
     { 
       Ruta:"TaTeTi",
       Nombre:"TaTeTi", 
-      Descripcion:"Debes colocar un símbolo una vez por turno y no debe ser sobre una casilla ya jugada. Se debe conseguir realizar una línea recta o diagonal por símbolo. Al marcar una casilla, aunque sea la más mínima marca, deberá poner símbolo de la siguiente jugada en esa casilla. Se puede realizar movimientos horizontales, verticales y diagonales.",
+      Descripcion:"Debes colocar un símbolo una vez por turno y no debe ser sobre una casilla ya jugada. Se debe conseguir realizar una línea recta o diagonal por símbolo. Se puede realizar movimientos horizontales, verticales y diagonales.",
       Imagen: "./assets/imagenes/tateti.jpg"
     },
     { 

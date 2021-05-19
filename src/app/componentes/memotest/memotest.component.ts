@@ -21,7 +21,7 @@ export class MemotestComponent implements OnInit {
   	public indexAux: any;
   	public reiniciar:boolean;
   	public fallos:number;
-	public puntajeFinal: number = 100;
+	public puntajeFinal: number = 140;
 
 	constructor(
     private js: ServicoJuegosService,

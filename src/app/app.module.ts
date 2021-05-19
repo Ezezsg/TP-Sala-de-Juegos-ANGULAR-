@@ -76,6 +76,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChatComponent } from './componentes/chat/chat.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import { ResultadoEncuestaComponent } from './componentes/resultado-encuesta/resultado-encuesta.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +114,9 @@ import { ChatComponent } from './componentes/chat/chat.component';
     SerpienteComponent,
     SerpienteMasListadoComponent,
     FooterComponent,
-    ChatComponent
+    ChatComponent,
+    EncuestaComponent,
+    ResultadoEncuestaComponent
   ],
   imports: [
     BrowserModule,

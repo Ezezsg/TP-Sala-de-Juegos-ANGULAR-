@@ -1,0 +1,22 @@
+<app-cabecera>  </app-cabecera>
+<section class="row mt-3">
+
+    <article class="card col-4 p-0" *ngFor="let item of listadoDeResultados">
+        <div class="card-body">
+            <h2 class="text-info">
+                {{item.usuario}}
+            </h2>
+            Nombre: {{item.nombre}}<br> 
+            Apellido: {{item.apellido}}<br>
+            Edad: {{item.edad}}<br>
+            Telefono: {{item.telefono}}<br>
+            <span class="text-info lead">
+                {{item.juego}}
+            </span><br>
+            Opinión: <p>{{item.texto}}</p><br>
+            Calificación: {{item.calificacion}}<br>
+        </div>
+    </article>
+
+</section>	
+<app-footer></app-footer>

@@ -31,6 +31,8 @@ import { MemotestComponent } from '../componentes/memotest/memotest.component';
 import { MemotestMasListadoComponent } from '../componentes/memotest-mas-listado/memotest-mas-listado.component';
 import { SerpienteComponent } from '../componentes/serpiente/serpiente.component';
 import { SerpienteMasListadoComponent } from '../componentes/serpiente-mas-listado/serpiente-mas-listado.component';
+import { EncuestaComponent } from '../componentes/encuesta/encuesta.component';
+import { ResultadoEncuestaComponent } from '../componentes/resultado-encuesta/resultado-encuesta.component';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
@@ -44,6 +46,9 @@ const MiRuteo = [
 {path: 'Listado' , component: ListadoComponent},
 {path: 'Paises' , component: ListadoDePaisesComponent},
 {path: 'cabecera' , component: CabeceraComponent},
+{path: 'listado-de-resultados' , component: ListadoDeResultadosComponent},
+{path: 'encuesta' , component: EncuestaComponent},
+{path: 'Resultadoencuesta' , component: ResultadoEncuestaComponent},
 { path: 'Juegos' ,
 component: JuegosComponent ,
 children:
